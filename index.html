@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoBike SP · Bicicletas por hora em São Paulo</title>
+  <meta name="description" content="Alugue bicicletas urbanas, elétricas e cargo por hora em São Paulo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="#inicio">EcoBike<span>SP</span></a>
+    <nav aria-label="Principal">
+      <a href="#planos">Planos</a>
+      <a href="#simulador">Simulador</a>
+      <a href="#reservas">Reservas</a>
+      <button id="tema" type="button" aria-pressed="false">🌙 Modo escuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-texto">
+        <h1>Pedale por São Paulo e pague só pelas horas que usar.</h1>
+        <p>Bikes urbanas, elétricas e cargo em estações espalhadas pela cidade. Veja o preço na hora e reserve em segundos.</p>
+        <a class="btn" href="#simulador">Calcular meu preço</a>
+      </div>
+      <svg class="hero-arte" viewBox="0 0 360 300" role="img" aria-label="Ilustração de uma bicicleta passando por colinas ao sol">
+        <circle cx="270" cy="70" r="44" fill="var(--cor-sol)"/>
+        <path d="M0 250 Q90 170 180 230 T360 210 V300 H0Z" fill="var(--cor-colina)"/>
+        <path d="M0 280 Q120 230 220 270 T360 260 V300 H0Z" fill="var(--cor-colina2)"/>
+        <g fill="none" stroke="var(--cor-tinta)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="110" cy="215" r="38"/><circle cx="250" cy="215" r="38"/>
+          <path d="M110 215 L158 150 L222 150 L250 215 M158 150 L182 215 L110 215 M182 215 L222 150 M150 132 H172 M214 130 H238 L242 150"/>
+        </g>
+        <circle cx="182" cy="215" r="7" fill="var(--cor-tinta)"/>
+      </svg>
+    </section>
+
+    <section id="planos">
+      <h2>Escolha sua bike</h2>
+      <div class="cards">
+        <article class="card c1">
+          <span class="icone" aria-hidden="true">🚲</span>
+          <h3>Urbana</h3>
+          <p class="preco">R$ 12<small>/hora</small></p>
+          <p>Leve e prática para trajetos curtos, ciclovias e passeios.</p>
+          <button class="btn-sec" type="button" data-tipo="urbana">Simular</button>
+        </article>
+        <article class="card c2">
+          <span class="icone" aria-hidden="true">⚡</span>
+          <h3>Elétrica</h3>
+          <p class="preco">R$ 20<small>/hora</small></p>
+          <p>Motor de apoio para encarar as ladeiras sem suar.</p>
+          <button class="btn-sec" type="button" data-tipo="eletrica">Simular</button>
+        </article>
+        <article class="card c3">
+          <span class="icone" aria-hidden="true">📦</span>
+          <h3>Cargo</h3>
+          <p class="preco">R$ 25<small>/hora</small></p>
+          <p>Cestão grande para compras, pets ou crianças.</p>
+          <button class="btn-sec" type="button" data-tipo="cargo">Simular</button>
+        </article>
+      </div>
+      <p class="aviso">Acima de 5 horas, você ganha 10% de desconto.</p>
+    </section>
+
+    <section id="simulador">
+      <h2>Quanto vou pagar?</h2>
+      <div class="painel">
+        <div class="form">
+          <label for="horas">Horas de uso</label>
+          <input id="horas" type="number" min="1" placeholder="Ex.: 3">
+          <label for="tipo">Tipo de bike</label>
+          <select id="tipo">
+            <option value="urbana">Urbana</option>
+            <option value="eletrica">Elétrica</option>
+            <option value="cargo">Cargo</option>
+          </select>
+          <button id="calcular" class="btn" type="button">Calcular</button>
+        </div>
+        <p id="resultado" role="status" aria-live="polite">Preencha as horas para ver o valor.</p>
+      </div>
+    </section>
+
+    <section id="reservas">
+      <h2>Como reservo?</h2>
+      <div class="painel">
+        <div class="form">
+          <label for="nome">Seu nome</label>
+          <input id="nome" type="text" placeholder="Ex.: Ana Souza" autocomplete="name">
+          <button id="adicionar" class="btn" type="button">Adicionar</button>
+        </div>
+        <div>
+          <p class="contagem">Total de reservas: <strong id="contador">0</strong></p>
+          <ul id="lista"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contato: <a href="mailto:marina@ecobikesp.com.br">marina@ecobikesp.com.br</a></p>
+    <p>© 2026 EcoBike SP</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
